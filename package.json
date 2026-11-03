@@ -1,0 +1,41 @@
+{
+  "name": "@genarch/ui",
+  "version": "0.1.0",
+  "description": "genarch ve genurban'ın ortak arayüz kütüphanesi: tasarım değişkenleri, stil, ikonlar, bileşenler",
+  "license": "MIT",
+  "author": "Ömer Özdemir",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozdemiromer26/genui.git"
+  },
+  "type": "module",
+  "packageManager": "pnpm@12.11.2",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./tokens.css": "./css/tokens.css",
+    "./bundle.css": "./css/bundle.css",
+    "./tokens.json": "./src/tokens.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "css",
+    "src/tokens.json"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "tokens": "node scripts/tokens.mjs",
+    "check": "node scripts/tokens.mjs --check",
+    "test": "vitest run",
+    "changeset": "changeset",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.29.8",
+    "vitest": "5.0.5"
+  }
+}
