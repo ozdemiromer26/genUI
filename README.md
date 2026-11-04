@@ -49,13 +49,20 @@ commit'e bağlanabilir: `pnpm add github:ozdemiromer26/genui#<commit>`.
 pnpm install
 pnpm tokens   # tokens.json değiştiyse tokens.css'i yeniden üretir
 pnpm build    # src/ → dist/ (dist depoda durur: uygulamalar npm yayınından önce bir commit'e bağlanabilsin)
+pnpm dev      # aynısı, değişiklikte yeniden
 pnpm check    # tokens.css ve dist/ güncel mi
 pnpm test
 ```
 
-**Uygulamada yerel kopyayla çalışmak:** genarch `GENUI_DIR=../genui pnpm --dir web dev` ile açılırsa `@genarch/ui`
-içe aktarmaları bu klasörün kaynağına (`src/`, `css/`) yönlenir; değişiklik yayın beklemeden görünür. Değişken yoksa
-kurulu paket kullanılır.
+**Uygulamada yerel kopyayla çalışmak** (değişiklik yayın beklemeden görünür; değişken yoksa kurulu paket kullanılır):
+
+- genarch: `GENUI_DIR=../genui pnpm --dir web dev` (genarch kökünden). Vite stilleri ve bileşenlerin kaynağını
+  (`src/`) doğrudan kullanır.
+- genurban: burada `pnpm dev` (bileşenleri `dist/`'e sürekli derler), genurban'da
+  `cd web && GENUI_DIR=../../genui npm run dev`. Stiller doğrudan `css/`'ten gelir.
+
+**npm yayınına kadar** uygulamalar paketi bir commit'e bağlar (`dist/` bu yüzden depoda): genarch
+`github:ozdemiromer26/genui#<commit>`, genurban `https://codeload.github.com/ozdemiromer26/genui/tar.gz/<commit>`.
 
 **Görsel denetim:** stil değişikliği iki uygulamada da (masaüstü, tablet, telefon; açık ve koyu) ekran görüntüsüyle
 denenir.

@@ -35,6 +35,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch --preserveWatchOutput",
     "tokens": "node scripts/tokens.mjs",
     "check": "node scripts/tokens.mjs --check && node scripts/check-dist.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
