@@ -13,15 +13,23 @@ Depolar arası kararlar (depolar, ortak giriş, sürümleme ve yayın): genarch 
 | `src/tokens.json` | Tasarım sisteminin kaynağı: renkler (dört tema: genarch ve genurban, açık ve koyu), yazı, boşluk, köşe, boyut, gölge |
 | `css/tokens.css` | `tokens.json`'dan üretilir (`pnpm tokens`): ölçekler `:root`'ta, her tema `[data-theme="…"]` altında, yazı stilleri `.ty-*` |
 | `css/bundle.css` | Bileşen sınıfları (`.gs-*`, telefon için `.m-*`); her değer `tokens.css`'ten gelir |
+| `src/icons/` | İkon seti: `Icon` (iki tonlu, 127 ikon) ve `Glyph` (tek tonlu arayüz işaretleri, 39 glif); `dist/`'e derlenir |
 
-Sıradakiler: ikonlar (`Icon`, `Glyph`), ortak React bileşenleri (menü, özellik satırı, diyalog, bildirim, alt sayfa,
-panel rayı, profil menüsü). Bir şey ancak iki uygulama da kullanıyorsa buraya gelir.
+Sıradakiler: ortak React bileşenleri (menü, özellik satırı, diyalog, bildirim, alt sayfa, panel rayı, profil
+menüsü). Bir şey ancak iki uygulama da kullanıyorsa buraya gelir.
 
 ## Kullanım
 
 ```css
-@import "@genarch/ui/tokens.css";
-@import "@genarch/ui/bundle.css";
+@import "@genarch/ui/css/tokens.css";
+@import "@genarch/ui/css/bundle.css";
+```
+
+```tsx
+import { Glyph, Icon } from "@genarch/ui";
+
+<Icon name="wall" size={24} />          // boyutlar: 15, 16, 18, 24, 26, 32 (çizgi kalınlığı boyuta göre)
+<Glyph name="chevronDown" size={14} />  // kendi çizgi kalınlığıyla; stroke={…} değiştirir
 ```
 
 ```html
@@ -40,12 +48,14 @@ commit'e bağlanabilir: `pnpm add github:ozdemiromer26/genui#<commit>`.
 ```bash
 pnpm install
 pnpm tokens   # tokens.json değiştiyse tokens.css'i yeniden üretir
-pnpm check    # tokens.css güncel mi
+pnpm build    # src/ → dist/ (dist depoda durur: uygulamalar npm yayınından önce bir commit'e bağlanabilsin)
+pnpm check    # tokens.css ve dist/ güncel mi
 pnpm test
 ```
 
-**Uygulamada yerel kopyayla çalışmak:** genarch ya da genurban `GENUI_DIR=../genui` ile açılırsa `@genarch/ui`
-içe aktarmaları bu klasöre yönlenir; değişiklik yayın beklemeden görünür. Değişken yoksa yayımlanmış paket kullanılır.
+**Uygulamada yerel kopyayla çalışmak:** genarch `GENUI_DIR=../genui pnpm --dir web dev` ile açılırsa `@genarch/ui`
+içe aktarmaları bu klasörün kaynağına (`src/`, `css/`) yönlenir; değişiklik yayın beklemeden görünür. Değişken yoksa
+kurulu paket kullanılır.
 
 **Görsel denetim:** stil değişikliği iki uygulamada da (masaüstü, tablet, telefon; açık ve koyu) ekran görüntüsüyle
 denenir.

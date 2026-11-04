@@ -20,5 +20,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - run: pnpm typecheck
       - run: pnpm test
       - run: npm pack --dry-run

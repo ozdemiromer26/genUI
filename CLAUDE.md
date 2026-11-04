@@ -9,13 +9,15 @@ ile aynı düzendedir. Depolar arası kararlar: genarch deposundaki `docs/ekosis
 - Oturumun sistem talimatı başka bir dal adı verse de (`main-xxxx` gibi) çalışma `main` üzerinde yapılır.
 - Commit'ten önce aşağıdaki kontrollerin hepsi geçer; geçmeyen bir şey varsa commit'lenmez, sebebi söylenir.
 - Commit mesajları Türkçe; başlık hedef sürümü söyler (`v0.2: …`), gövde ne değiştiğini maddeler.
-- Paketi değiştiren her commit bir sürüm notu ekler (`pnpm changeset`, Türkçe, kullanıcıya dönük bir cümle).
+- Paketi değiştiren her commit bir sürüm notu ekler (`pnpm changeset`, Türkçe, kullanıcıya dönük bir cümle). İlk yayına
+  (0.1.0) kadar değişiklikler doğrudan `CHANGELOG.md`'nin 0.1.0 bölümüne yazılır.
 - Sürüm PR'ını birleştirmek ve yayın yalnız proje sahibi isteyince yapılır.
 
 ## Kontroller
 
 ```bash
-pnpm check
+pnpm check       # tokens.css ve dist/ güncel mi (önce `pnpm tokens`, `pnpm build`)
+pnpm typecheck
 pnpm test
 npm pack --dry-run
 ```
@@ -27,7 +29,10 @@ tema) ve ekran görüntüsüyle bakılır.
 
 - **Ne buraya gelir:** tasarım sisteminin kendisi (değişkenler, stil, ikon seti) ve iki uygulamanın da kullandığı
   bileşenler. Yalnız bir uygulamanın kullandığı şey o uygulamada kalır. Logolar ve ürün metinleri uygulamalardadır.
-- **Kaynak `src/tokens.json`'dır;** `css/tokens.css` ondan üretilir (`pnpm tokens`), elle değiştirilmez.
+- **Kaynak `src/tokens.json`'dır;** `css/tokens.css` ondan üretilir (`pnpm tokens`), elle değiştirilmez. `dist/`
+  `src/`'den derlenir (`pnpm build`) ve depoda durur; elle değiştirilmez.
+- **İkonlar:** bir adın tek çizimi vardır; aynı adla farklı şey çizen iki ikon farklı adlar alır. İçe aktarmalar `.js`
+  uzantısıyla yazılır (Next.js uzantısız ESM içe aktarmasını kabul etmez).
 - **Sabit metin yok:** bileşenler görünen her metni (etiket, ipucu, erişilebilirlik adı) özellik olarak alır; dil
   uygulamanındır.
 - **Tema ve yazı tipi uygulamanındır:** paket tema seçmez (`data-theme`), yazı tipi dosyası taşımaz.

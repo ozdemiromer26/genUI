@@ -13,13 +13,19 @@
   "sideEffects": [
     "*.css"
   ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./tokens.css": "./css/tokens.css",
-    "./bundle.css": "./css/bundle.css",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./css/*": "./css/*",
     "./tokens.json": "./src/tokens.json",
     "./package.json": "./package.json"
   },
   "files": [
+    "dist",
     "css",
     "src/tokens.json"
   ],
@@ -28,14 +34,24 @@
     "provenance": true
   },
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "tokens": "node scripts/tokens.mjs",
-    "check": "node scripts/tokens.mjs --check",
+    "check": "node scripts/tokens.mjs --check && node scripts/check-dist.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "changeset": "changeset",
     "release": "changeset publish"
   },
+  "peerDependencies": {
+    "react": ">=19"
+  },
   "devDependencies": {
     "@changesets/cli": "2.29.8",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "6.0.3",
     "vitest": "5.0.5"
   }
 }
