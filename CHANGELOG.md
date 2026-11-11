@@ -2,7 +2,7 @@
 
 Sürüm notları Changesets ile yazılır (`.changeset/`); yeni sürümler bu başlığın altına eklenir.
 
-## 0.1.0 (yayımlanmadı)
+## 0.1.0 (2026-11-11)
 
 - Tasarım değişkenleri (`src/tokens.json` → `css/tokens.css`): dört tema (genarch ve genurban, açık ve koyu), ölçekler,
   yazı stilleri. genarch ve genurban'daki kopyalarla aynı değerler.

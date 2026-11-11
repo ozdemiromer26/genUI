@@ -40,8 +40,9 @@ import { Glyph, Icon } from "@genarch/genui";
 - Yazı tipi uygulamanın bağımlılığıdır. Geist bir CSS değişkeniyle yüklenmişse (`next/font`: `--font-geist-sans`,
   `--font-geist-mono`) o kullanılır, yoksa `Geist` adı.
 
-**Kurulum:** paket npm'de yayımlanınca `pnpm add @genarch/genui` (sürüm tam yazılır, `^` olmadan). O zamana kadar bir
-commit'e bağlanabilir: `pnpm add github:ozdemiromer26/genui#<commit>`.
+**Kurulum:** `pnpm add @genarch/genui --save-exact` ([npm](https://www.npmjs.com/package/@genarch/genui); sürüm tam
+yazılır, `^` olmadan). Yayımlanmamış bir değişikliği denemek için bir commit'e de bağlanabilir:
+`pnpm add github:ozdemiromer26/genui#<commit>`.
 
 ## Geliştirme
 
@@ -61,8 +62,9 @@ pnpm test
 - genurban: burada `pnpm dev` (bileşenleri `dist/`'e sürekli derler), genurban'da
   `cd web && GENUI_DIR=../../genui npm run dev`. Stiller doğrudan `css/`'ten gelir.
 
-**npm yayınına kadar** uygulamalar paketi bir commit'e bağlar (`dist/` bu yüzden depoda): genarch
-`github:ozdemiromer26/genui#<commit>`, genurban `https://codeload.github.com/ozdemiromer26/genui/tar.gz/<commit>`.
+**Bir commit'e bağlama** (`dist/` bu yüzden depoda): yayımlanmamış bir değişikliği CI'da denemek için genarch
+`github:ozdemiromer26/genui#<commit>`, genurban `https://codeload.github.com/ozdemiromer26/genui/tar.gz/<commit>`
+kullanabilir; yayından sonra sürüme dönülür.
 
 **Görsel denetim:** stil değişikliği iki uygulamada da (masaüstü, tablet, telefon; açık ve koyu) ekran görüntüsüyle
 denenir.
