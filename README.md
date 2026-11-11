@@ -14,9 +14,9 @@ Depolar arası kararlar (depolar, ortak giriş, sürümleme ve yayın): genarch 
 | `css/tokens.css` | `tokens.json`'dan üretilir (`pnpm tokens`): ölçekler `:root`'ta, her tema `[data-theme="…"]` altında, yazı stilleri `.ty-*` |
 | `css/bundle.css` | Bileşen sınıfları (`.gs-*`, telefon için `.m-*`); her değer `tokens.css`'ten gelir |
 | `src/icons/` | İkon seti: `Icon` (iki tonlu, 127 ikon) ve `Glyph` (tek tonlu arayüz işaretleri, 39 glif); `dist/`'e derlenir |
-| `src/components/` | Ortak bileşenler: `TypeCard` (Özellikler'in başındaki tip seçici) |
+| `src/components/` | Ortak bileşenler: `TypeCard` (Özellikler'in başındaki tip seçici), `ProfileMenu` (sağ üstteki hesap denetimi: "Giriş yap" ya da avatar ve menüsü) |
 
-Sıradakiler: özellik satırları ve bölümler, menü, diyalog, bildirim, alt sayfa, panel rayı, profil menüsü. Bir şey ancak iki uygulama da kullanıyorsa buraya gelir.
+Sıradakiler: özellik satırları ve bölümler, menü, diyalog, bildirim, alt sayfa, panel rayı. Bir şey ancak iki uygulama da kullanıyorsa buraya gelir.
 
 ## Kullanım
 
