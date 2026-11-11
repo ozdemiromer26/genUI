@@ -50,3 +50,38 @@ describe("components", () => {
     expect(renderToStaticMarkup(createElement(Glyph, { name: "chevronDown", stroke: 1.5 }))).toContain('stroke-width="1.5"');
   });
 });
+
+describe("TypeCard", () => {
+  it("lists the types by group, shows a fallback for an unknown value, and the category row", async () => {
+    const { TypeCard } = await import("../dist/index.js");
+    const html = renderToStaticMarkup(
+      createElement(TypeCard, {
+        icon: "road",
+        family: "Sistem ailesi: Yol",
+        types: [{ value: "Cadde", label: "Cadde", group: "Proje" }, { value: "Ana", label: "Ana", group: "Kütüphane" }],
+        value: "",
+        fallback: "Karışık",
+        typeLabel: "Tip",
+        onChange: () => {},
+        categories: [{ value: "r", label: "Yollar (2)" }],
+        categoryLabel: "Kategori",
+        editLabel: "Tip düzenle",
+        onEdit: () => {},
+      }),
+    );
+    expect(html).toContain('class="gs-typecard"');
+    expect(html).toContain('<optgroup label="Proje">');
+    expect(html).toContain('<optgroup label="Kütüphane">');
+    expect(html).toContain(">Karışık</option>");
+    expect(html).toContain("Yollar (2)");
+    expect(html).toContain("disabled");
+    expect(html).toContain(">Tip düzenle</button>");
+  });
+
+  it("shows a note instead of the categories", async () => {
+    const { TypeCard } = await import("../dist/index.js");
+    const html = renderToStaticMarkup(createElement(TypeCard, { icon: "wall", family: "Sıradaki duvar", types: [], value: "x", typeLabel: "Tip", onChange: () => {}, note: "Bu tipte çizilir" }));
+    expect(html).toContain('<span class="note">Bu tipte çizilir</span>');
+    expect(html).toMatch(/<option value="x"[^>]*>x<\/option>/);
+  });
+});

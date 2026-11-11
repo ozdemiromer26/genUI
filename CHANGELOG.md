@@ -1,4 +1,4 @@
-# @genarch/ui
+# @genarch/genui
 
 Sürüm notları Changesets ile yazılır (`.changeset/`); yeni sürümler bu başlığın altına eklenir.
 
@@ -12,4 +12,7 @@ Sürüm notları Changesets ile yazılır (`.changeset/`); yeni sürümler bu ba
   adla farklı çizilen `extend` ikisine ayrıldı: `extend` (uzat, ok) ve `expand` (genişlet, çerçeve). Aynı çizimi
   taşıyan gliflerde genarch'ın adları kaldı (`chevronDown`, `chevronUp`, `chevronRight`, `more`, `hide`, `pin`);
   her glifin tasarım sistemindeki çizgi kalınlığı var, `stroke` ile değişir.
-- Stil dosyaları `@genarch/ui/css/…` altında.
+- Stil dosyaları `@genarch/genui/css/…` altında.
+- `TypeCard`: Özellikler'in başındaki tip seçici (Revit gibi): aile, gruplu tip listesi, seçimin kategorisi ya da bir not,
+  "Tip düzenle" düğmesi. Metinler uygulamadan gelir.
+- Paket adı `@genarch/genui` (depo adıyla aynı).
