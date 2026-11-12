@@ -1,6 +1,6 @@
 {
   "name": "@genarch/genui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "genarch ve genurban'ın ortak arayüz kütüphanesi: tasarım değişkenleri, stil, ikonlar, bileşenler",
   "license": "MIT",
   "author": "Ömer Özdemir",
