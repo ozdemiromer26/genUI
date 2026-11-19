@@ -13,7 +13,7 @@
 .gs-ic-1 { flex: none; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ── Title bar ─────────────────────────────── */
-.gs-titlebar { display: flex; align-items: center; gap: 10px; height: var(--size-titlebar); padding-left: 10px; background: var(--surface-panel); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.gs-titlebar { display: flex; align-items: center; gap: 10px; height: var(--size-titlebar); padding: 0 10px; background: var(--surface-panel); border-bottom: 1px solid var(--line); white-space: nowrap; }
 .gs-brand { flex: none; display: flex; align-items: center; gap: 7px; font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
 .gs-brand img { display: block; height: 17px; width: auto; }
 .gs-brand .gen { color: var(--brand-genarch); }
@@ -34,9 +34,6 @@
 .gs-kbd { flex: none; padding: 0 4px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 10.5px; line-height: 16px; color: var(--ink-muted); }
 .gs-lang { display: inline-flex; align-items: center; gap: 5px; height: var(--size-control); padding: 0 8px; border: 1px solid var(--line-control); border-radius: var(--radius-md); background: var(--surface); font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-2); cursor: pointer; }
 .gs-avatar { width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: var(--radius-pill); background: var(--accent-soft); color: var(--accent-text); font-size: 11px; font-weight: 600; cursor: pointer; }
-.gs-winctl { flex: none; display: flex; align-self: stretch; margin-left: 4px; }
-.gs-winctl button { width: 44px; display: flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; }
-.gs-winctl button:hover { background: var(--surface-hover); }
 
 /* product switch */
 .gs-product { flex: none; display: inline-flex; padding: 2px; gap: 2px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
